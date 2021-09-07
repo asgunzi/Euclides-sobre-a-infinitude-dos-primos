@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+ <title>Prova visual de Euclides sobre a infinitude dos primos</title>
+ 
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+      <h1><a href="https://ideiasesquecidas.com"> <img src=	"https://ideiasesquecidas.files.wordpress.com/2020/03/forgottenlogo.png" width="90" height = "50"></a> Prova visual de Euclides sobre a infinitude dos primos
+	
+	</h1>
+	
+
+   
+   <p>
+   </p>
+
+
+<script type = "text/javascript">
+    var svg1 = d3.select("body")
+        .append("svg")
+        .attr("width", 500)
+        .attr("height", 200);
+
+    var svg2 = d3.select("body")
+        .append("svg")
+        .attr("width", 1000)
+        .attr("height", 200);
+
+    var svg3 = d3.select("body")
+        .append("svg")
+        .attr("width", 1000)
+        .attr("height", 200);
+   
+    var svg5 = d3.select("body")
+        .append("svg")
+        .attr("width", 1000)
+        .attr("height", 200);
+   
+      Desenhar();
+		
+	
+	function Desenhar()
+	{
+	svg1.selectAll("*").remove();
+
+	primosCod = [2,2,3,3,3,5,5,5,5,5];
+	x0 =[1,2, 1, 2, 3, 1, 2, 3, 4, 5];
+	y0= [1,1,2,2,2,3,3,3,3,3];
+	var aux;
+	var r0 = 10;
+	
+	//Círculos
+		var circle1 = svg1.selectAll("circle")
+			.data(primosCod)
+			.enter()
+			.append("circle")
+			.attr("cx", function(d,i){ return (x0[i])*30+20} )
+			.attr("cy", function(d,i){ return (y0[i])*30} )
+			.attr("r", r0)
+			.attr("fill", "blue")
+			.attr("stroke", "black")
+	
+	svg1.append("text")
+			.attr("x", 7)
+			.attr("y", 30+8)
+			.text("2: ")
+			.attr("font-size",25)
+
+	svg1.append("text")
+			.attr("x", 7)
+			.attr("y", 60+8)
+			.text("3: ")
+			.attr("font-size",25)
+
+	svg1.append("text")
+			.attr("x", 7)
+			.attr("y", 90+8)
+			.text("5: ")
+			.attr("font-size",25)
+
+
+	//Divisao por 2
+	svg2.selectAll("*").remove();
+
+	N = 31;
+	
+	x1 =[];
+	
+	for (i=0; i<31;i++)
+	{
+		x1.push(i+1);
+	}
+
+	Nrect = 15;
+	
+	xrect2 =[];
+	
+	for (i=0; i<Nrect;i++)
+	{
+		xrect2.push(i+1);
+	}
+	
+
+		var rect2 = svg2.selectAll("rect")
+			.data(xrect2)
+			.enter()
+			.append("rect")
+			.attr("x", function(d,i){ return (xrect2[i])*60+20-30-13} )
+			.attr("y", function(d,i){ return 14} )			
+			.attr("width",60)
+			.attr("height",30)
+			.attr("fill", "rgb(212,175,55)")
+			.attr("stroke", "black")
+	
+	//Círculos
+		var circle2 = svg2.selectAll("circle")
+			.data(x1)
+			.enter()
+			.append("circle")
+			.attr("cx", function(d,i){ return (x1[i])*30+20} )
+			.attr("cy", function(d,i){ return 30} )
+			.attr("r", r0)
+			.attr("fill", "blue")
+			.attr("stroke", "black")
+
+	//Divisao por 3
+	svg3.selectAll("*").remove();
+
+	xrect3 =[];
+	
+	for (i=0; i<10;i++)
+	{
+		xrect3.push(i+1);
+	}
+	
+
+		var rect3 = svg3.selectAll("rect")
+			.data(xrect3)
+			.enter()
+			.append("rect")
+			.attr("x", function(d,i){ return (xrect2[i])*90+20-60-13} )
+			.attr("y", function(d,i){ return 14} )			
+			.attr("width",90)
+			.attr("height",30)
+			.attr("fill", "rgb(212,175,55)")
+			.attr("stroke", "black")
+	
+	//Círculos
+		var circle3 = svg3.selectAll("circle")
+			.data(x1)
+			.enter()
+			.append("circle")
+			.attr("cx", function(d,i){ return (x1[i])*30+20} )
+			.attr("cy", function(d,i){ return 30} )
+			.attr("r", r0)
+			.attr("fill", "blue")
+			.attr("stroke", "black")
+
+	//Divisao por 5
+	svg5.selectAll("*").remove();
+
+	xrect5 =[];
+	
+	for (i=0; i<6;i++)
+	{
+		xrect5.push(i+1);
+	}
+	
+
+		var rect5 = svg5.selectAll("rect")
+			.data(xrect5)
+			.enter()
+			.append("rect")
+			.attr("x", function(d,i){ return (xrect2[i])*150+20-120-13} )
+			.attr("y", function(d,i){ return 14} )			
+			.attr("width",150)
+			.attr("height",30)
+			.attr("fill", "rgb(212,175,55)")
+			.attr("stroke", "black")
+	
+	//Círculos
+		var circle5 = svg5.selectAll("circle")
+			.data(x1)
+			.enter()
+			.append("circle")
+			.attr("cx", function(d,i){ return (x1[i])*30+20} )
+			.attr("cy", function(d,i){ return 30} )
+			.attr("r", r0)
+			.attr("fill", "blue")
+			.attr("stroke", "black")
+
+	}
+	
+	
+  </script>
+</body>
+</html>
